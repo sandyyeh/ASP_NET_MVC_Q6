@@ -19,13 +19,13 @@ namespace ASP_NET_MVC_Q6.Areas.Order
             context.MapRoute(
                 "Order_default",
                 "Order/{action}/{page}",
-                new { controller = "Default", action = "Index", page = UrlParameter.Optional }
+                new {area="Order", controller = "Default", action = "Index", page = UrlParameter.Optional }
             );
 
             context.MapRoute(
              "Order_default2",
              "OrderDetail/{id}",
-             new { controller = "Default", action = "Detail", id = UrlParameter.Optional }
+             new { area = "Order", controller = "Default", action = "Detail", id = UrlParameter.Optional }
          );
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASP_NET_MVC_Q6.ActionFilter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,8 @@ namespace ASP_NET_MVC_Q6.Areas.Product.Controllers
 {
     public class MainController : Controller
     {
-        // GET: Product/Main
+
+        [AreaLogActionFilterAttribute]
         public ActionResult List()
         {
             return View();

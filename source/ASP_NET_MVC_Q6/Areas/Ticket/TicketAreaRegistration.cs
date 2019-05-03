@@ -17,12 +17,12 @@ namespace ASP_NET_MVC_Q6.Areas.Ticket
             context.MapRoute(
                 "Ticket_default",
                 "Ticket/{action}",
-                new {controller="Main", action = "Index" }
+                new { area = "Ticket",controller ="Main", action = "Index" }
             );
             context.MapRoute(
               "Ticket_default2",
               "Ticket/{action}/{id}",
-              new { controller = "Main", action = "Index", id = UrlParameter.Optional }
+              new { area="Ticket",controller = "Main", action = "Index", id = UrlParameter.Optional }
           );
         }
     }
