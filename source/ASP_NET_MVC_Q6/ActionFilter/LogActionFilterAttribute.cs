@@ -41,7 +41,6 @@ namespace ASP_NET_MVC_Q6.ActionFilter
             
             foreach (var item in url)
             {
-                //if (item==null) { url.Remove(item); }
                 result = result + item + "/";
             }
             output.WriteLine(result);

@@ -2,27 +2,29 @@
 
 namespace ASP_NET_MVC_Q6.Areas.Ticket
 {
-    public class TicketAreaRegistration : AreaRegistration 
+    public class TicketAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Ticket";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Ticket_default",
                 "Ticket/{action}",
-                new { area = "Ticket",controller ="Main", action = "Index" }
+                new { area = "Ticket", controller = "Main",action="List" }
+        
             );
             context.MapRoute(
               "Ticket_default2",
               "Ticket/{action}/{id}",
-              new { area="Ticket",controller = "Main", action = "Index", id = UrlParameter.Optional }
+              new { area = "Ticket", controller = "Main", action = "Detail", id = UrlParameter.Optional }
+              //constraints: new { Controller = "Ticket", controller = "Main", action = "Detail"}
           );
         }
     }
