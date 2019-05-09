@@ -10,7 +10,7 @@ namespace ASP_NET_MVC_Q6.Areas.Product.Controllers
     public class MainController : Controller
     {
 
-        [AreaLogActionFilterAttribute]
+        [LogActionFilterAttribute]
         public ActionResult List()
         {
             return View();

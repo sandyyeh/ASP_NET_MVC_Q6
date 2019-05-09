@@ -12,17 +12,18 @@ namespace ASP_NET_MVC_Q6.ActionFilter
 {
     public class LogActionFilterAttribute : ActionFilterAttribute
     {
-        private HttpWriter output;
+
+        private HttpWriter _output;
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            output = (HttpWriter)filterContext.RequestContext.HttpContext.Response.Output;
-            url(filterContext.RouteData);
+            _output = (HttpWriter)filterContext.RequestContext.HttpContext.Response.Output;
+            Url(filterContext.RouteData);
 
         }
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-           
+
         }
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {
@@ -32,19 +33,57 @@ namespace ASP_NET_MVC_Q6.ActionFilter
         {
 
         }
-        void url(RouteData routeData)
+        void Url(RouteData routeData)
         {
             string result = "";
-            ArrayList url = new ArrayList();          
-            url.Add((string)routeData.Values["controller"]);
-            url.Add((string)routeData.Values["Action"]);   
-            
+            ArrayList url = new ArrayList();
+            if (!string.IsNullOrEmpty((string)routeData.Values["area"]))
+            {
+                url.Add((string)routeData.Values["area"]);
+            }
+            if (!string.IsNullOrEmpty((string)routeData.Values["controller"]))
+            {
+                url.Add((string)routeData.Values["controller"]);
+            }
+            if (!string.IsNullOrEmpty((string)routeData.Values["action"]))
+            {
+                url.Add((string)routeData.Values["action"]);
+            }
+            if (!string.IsNullOrEmpty((string)routeData.Values["id"]))
+            {
+                if (int.TryParse((string)routeData.Values["id"], out int num))
+                {
+                    url.Add((string)routeData.Values["id"]);
+                }
+                else
+                {
+                    url.Clear();
+                    result = "URL is wrong!";
+                }
+            }
+            if (!string.IsNullOrEmpty((string)routeData.Values["page"]))
+            {
+                if (int.TryParse((string)routeData.Values["page"], out int num2))
+                {
+                    url.Add((string)routeData.Values["page"]);
+                }
+                else
+                {
+                    url.Clear();
+                    result = "URL is wrong!";
+                }
+            }
+            if (!string.IsNullOrEmpty((string)routeData.Values["category"]))
+            {
+                url.Add((string)routeData.Values["category"]);
+            }
             foreach (var item in url)
             {
                 result = result + item + "/";
             }
-            output.WriteLine(result);
+            _output.WriteLine(result);
         }
+
 
     }
 

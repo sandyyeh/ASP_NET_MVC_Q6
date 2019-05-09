@@ -17,16 +17,16 @@ namespace ASP_NET_MVC_Q6.Areas.Order
 
 
             context.MapRoute(
-                "Order_default",
-                "Order/{action}/{page}",
-                new {area="Order", controller = "Default", action = "Index", page = UrlParameter.Optional }
-            );
+                   "Order_default",
+                   "Order/{action}/{page}",
+                   new { area = "Order", controller = "Default", action = "Index", page = UrlParameter.Optional }
+               );
 
             context.MapRoute(
-             "Order_default2",
-             "OrderDetail/{id}",
-             new { area = "Order", controller = "Default", action = "Detail", id = UrlParameter.Optional }
-         );
+                 "Order_default2",
+                 "OrderDetail/{id}",
+                 new { area = "Order", controller = "Default", action = "Detail", id = UrlParameter.Optional }
+             );
         }
     }
 }

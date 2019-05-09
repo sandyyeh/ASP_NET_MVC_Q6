@@ -10,12 +10,12 @@ namespace ASP_NET_MVC_Q6.Areas.Ticket.Controllers
     public class MainController : Controller
     {
         // GET: Ticket/Main
-        [AreaLogActionFilterAttribute]
+        [LogActionFilterAttribute]
         public ActionResult List()
         {
             return View();
         }
-        [AreaLogActionFilterAttribute]
+        [LogActionFilterAttribute]
         public ActionResult Detail()
         {
             return View();

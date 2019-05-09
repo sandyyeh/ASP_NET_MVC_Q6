@@ -116,7 +116,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionFilter\AreaLogActionFilterAttribute.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="ActionFilter\LogActionFilterAttribute.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

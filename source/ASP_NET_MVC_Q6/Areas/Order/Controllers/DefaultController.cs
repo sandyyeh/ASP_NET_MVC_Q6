@@ -11,24 +11,14 @@ namespace ASP_NET_MVC_Q6.Areas.Order.Controllers
     public class DefaultController : Controller
     {
         // GET: Order/Default
-        [AreaLogActionFilterAttribute]
+        [LogActionFilterAttribute]
         public ActionResult List()
         {
-            //string result = "";
-            //ArrayList url = new ArrayList();
-            //url.Add((string)RouteData.Values["controller"]);
-            //url.Add((string)RouteData.Values["Action"]);
-            //foreach (var item in url)
-            //{
-            //    result = result + item + "/";
-            //}
-            //ViewBag.result = result;
-
             return View();
         }
 
-        [AreaLogActionFilterAttribute]
-        public ActionResult Detail()
+        [LogActionFilterAttribute]
+        public ActionResult Detail(string output)
         {
             return View();
         }
