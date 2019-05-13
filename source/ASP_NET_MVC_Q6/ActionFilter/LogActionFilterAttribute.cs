@@ -36,54 +36,28 @@ namespace ASP_NET_MVC_Q6.ActionFilter
         void Url(RouteData routeData)
         {
             string result = "";
+            string[] key = { "area", "controller", "action", "id", "page", "category" };
             ArrayList url = new ArrayList();
-            if (!string.IsNullOrEmpty((string)routeData.Values["area"]))
+
+            foreach (var item in key)
             {
-                url.Add((string)routeData.Values["area"]);
-            }
-            if (!string.IsNullOrEmpty((string)routeData.Values["controller"]))
-            {
-                url.Add((string)routeData.Values["controller"]);
-            }
-            if (!string.IsNullOrEmpty((string)routeData.Values["action"]))
-            {
-                url.Add((string)routeData.Values["action"]);
-            }
-            if (!string.IsNullOrEmpty((string)routeData.Values["id"]))
-            {
-                if (int.TryParse((string)routeData.Values["id"], out int num))
+                if (!string.IsNullOrEmpty((string)routeData.Values[item]))
                 {
-                    url.Add((string)routeData.Values["id"]);
-                }
-                else
-                {
-                    url.Clear();
-                    result = "URL is wrong!";
+                    url.Add((string)routeData.Values[item]);
+                    if ((item == "id" || item == "page") && !(int.TryParse((string)routeData.Values[item], out int num)))
+                    {
+                        url.Clear();
+                        result = "URL is Wrong!";
+                    }
                 }
             }
-            if (!string.IsNullOrEmpty((string)routeData.Values["page"]))
-            {
-                if (int.TryParse((string)routeData.Values["page"], out int num2))
-                {
-                    url.Add((string)routeData.Values["page"]);
-                }
-                else
-                {
-                    url.Clear();
-                    result = "URL is wrong!";
-                }
-            }
-            if (!string.IsNullOrEmpty((string)routeData.Values["category"]))
-            {
-                url.Add((string)routeData.Values["category"]);
-            }
+
             foreach (var item in url)
             {
                 result = result + item + "/";
             }
             _output.WriteLine(result);
         }
-
 
     }
 
