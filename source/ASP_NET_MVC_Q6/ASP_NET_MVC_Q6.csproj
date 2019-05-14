@@ -125,6 +125,7 @@
     <Compile Include="Areas\Product\ProductAreaRegistration.cs" />
     <Compile Include="Areas\Ticket\Controllers\MainController.cs" />
     <Compile Include="Areas\Ticket\TicketAreaRegistration.cs" />
+    <Compile Include="Controllers\ActionFilterController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -158,6 +159,7 @@
     <Folder Include="Areas\Product\Models\" />
     <Folder Include="Areas\Ticket\Models\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ActionFilter\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

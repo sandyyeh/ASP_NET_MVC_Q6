@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace ASP_NET_MVC_Q6.Controllers
 {
-    public class DefaultController:Controller
+    public class DefaultController: ActionFilterController
     {
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -19,14 +19,13 @@ namespace ASP_NET_MVC_Q6.Controllers
 
 
 
-        [LogActionFilterAttribute]
+ 
         public ActionResult Login()
         {
           
             return View();
         }
 
-        [LogActionFilterAttribute]
         public ActionResult List()
         {
             return View();
