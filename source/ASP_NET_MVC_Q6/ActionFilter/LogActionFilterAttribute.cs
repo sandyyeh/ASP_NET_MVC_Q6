@@ -33,22 +33,30 @@ namespace ASP_NET_MVC_Q6.ActionFilter
         {
 
         }
+
         void Url(RouteData routeData)
         {
             string result = "";
-            string[] key = { "area", "controller", "action", "id", "page", "category" };
+            var areaName = "area";
+            string[] key = { "controller", "action", "id", "page", "category" };
             ArrayList url = new ArrayList();
 
+            if (areaName != null)
+            {
+                url.Add((string)routeData.DataTokens[areaName]);
+            }
             foreach (var item in key)
             {
                 if (!string.IsNullOrEmpty((string)routeData.Values[item]))
                 {
                     url.Add((string)routeData.Values[item]);
+
                     if ((item == "id" || item == "page") && !(int.TryParse((string)routeData.Values[item], out int num)))
                     {
                         url.Clear();
                         result = "URL is Wrong!";
                     }
+
                 }
             }
 
@@ -56,6 +64,7 @@ namespace ASP_NET_MVC_Q6.ActionFilter
             {
                 result = result + item + "/";
             }
+
             _output.WriteLine(result);
         }
 
